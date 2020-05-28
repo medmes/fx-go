@@ -36,9 +36,9 @@ func main() {
 	mux := http.NewServeMux()
 	httphandler.New(mux)
 
-	slogger.Info("HTTP Listening on port: ", conf.Address)
+	slogger.Info("HTTP Listening on port: ", conf.ApplicationConfig.Address)
 	//  http.ListenAndServe, Listening on config.Address port:
-	if err := http.ListenAndServe(conf.Address, mux); err != nil {
+	if err := http.ListenAndServe(conf.ApplicationConfig.Address, mux); err != nil {
 		slogger.Info("Something went wrong")
 		slogger.Error(err)
 	}
