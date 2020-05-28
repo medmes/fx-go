@@ -1,6 +1,9 @@
 package httphandler
 
-import "net/http"
+import (
+	"go.uber.org/zap"
+	"net/http"
+)
 
 // Handler for http requests
 type Handler struct {
@@ -8,7 +11,7 @@ type Handler struct {
 }
 
 // New http handler
-func New(s *http.ServeMux) *Handler {
+func New(s *http.ServeMux, sLogger *zap.SugaredLogger) *Handler {
 	h := Handler{s}
 	h.registerRoutes()
 
