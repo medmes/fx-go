@@ -29,8 +29,7 @@ func main() {
 		slogger.Errorf("Could not find or read from config/base.yaml file")
 	}
 
-	err = yaml.Unmarshal([]byte(data), &conf)
-	if err != nil {
+	if err := yaml.Unmarshal([]byte(data), &conf); err != nil {
 		slogger.Errorf("Could Unmarshal config/base.yaml file, please make sure if it's a valid Yaml file")
 	}
 
@@ -39,7 +38,7 @@ func main() {
 
 	slogger.Info("HTTP Listening on port: ", conf.Address)
 	//  http.ListenAndServe, Listening on config.Address port:
-	if err = http.ListenAndServe(conf.Address, mux); err != nil {
+	if err := http.ListenAndServe(conf.Address, mux); err != nil {
 		slogger.Info("Something went wrong")
 		slogger.Error(err)
 	}
