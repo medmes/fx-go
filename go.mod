@@ -1,4 +1,4 @@
-module github.com/medmes/go-tdd
+module github.com/medmes/fx-go
 
 go 1.14
 
