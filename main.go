@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/medmes/go-tdd/fx/httphandler"
+	"github.com/medmes/fx-go/httphandler"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
 	"gopkg.in/yaml.v2"
@@ -57,7 +57,7 @@ type Config struct {
 func ProvideConfig() *Config {
 	conf := Config{}
 
-	data, err := ioutil.ReadFile("fx/config/base.yaml")
+	data, err := ioutil.ReadFile("config/base.yaml")
 	if err != nil {
 		fmt.Println("Could not find or read from config/base.yaml file")
 	}
